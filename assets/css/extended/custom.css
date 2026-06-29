@@ -32,8 +32,9 @@ p, li, td, th, span, a, label, time, blockquote {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 800 !important;
-    letter-spacing: -0.02em;
+    font-weight: 900 !important;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
 }
 
 /* ── Wider, evenly padded main content ──────────────────────────────────── */
@@ -45,9 +46,61 @@ h1, h2, h3, h4, h5, h6 {
     padding: 2rem 1.5rem !important;
 }
 
+/* ── Big-type page headings (list pages: Posts, Tags, Archive) ───────────── */
+
+.list-header h1,
+.page-header h1,
+.terms h1 {
+    font-size: clamp(2.8rem, 7vw, 5.5rem) !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.04em !important;
+    line-height: 0.95 !important;
+    text-transform: uppercase;
+    margin: 0 0 0.15em !important;
+    color: var(--primary);
+}
+
+.list-header .page-description,
+.page-header .page-description {
+    font-size: 1rem;
+    opacity: 0.55;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+    margin-top: 0.6rem;
+}
+
+/* Divider line beneath big heading */
 .list-header,
-.page-header {
-    margin-bottom: 1.5rem;
+.page-header,
+.terms-header {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+    padding-bottom: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+/* ── Big-type post title on single post page ─────────────────────────────── */
+
+.post-header h1.post-title {
+    font-size: clamp(2.2rem, 5.5vw, 4rem) !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.04em !important;
+    line-height: 1.0 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.post-meta {
+    font-size: 0.82rem;
+    opacity: 0.5;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+/* Divider under post title */
+.post-header {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.10);
+    padding-bottom: 1.6rem;
+    margin-bottom: 2rem;
 }
 
 /* ── Header ─────────────────────────────────────────────────────────────── */
@@ -221,9 +274,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .home-info h1 {
-    font-size: 2rem;
-    font-weight: 800 !important;
-    margin-bottom: 0.6rem;
+    font-size: clamp(2.4rem, 6vw, 4.5rem) !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.04em;
+    line-height: 0.97;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
 }
 
 /* ── Single post page ───────────────────────────────────────────────────── */
