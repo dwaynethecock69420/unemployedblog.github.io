@@ -1,6 +1,6 @@
 baseURL = "https://your-domain.example/"
 locale = "en-AU"
-title = "Billal Rehmani"
+title = "unemployed guy's blog"
 theme = "PaperMod"
 
 [params]
@@ -16,8 +16,8 @@ theme = "PaperMod"
   description = "IT student. Networking, security, Linux, and the occasional shader pack."
 
   [params.homeInfoParams]
-    Title = "Billal Rehmani"
-    Content = "IT student at TAFE NSW, focused on networking and cybersecurity. Write-ups of real projects — what worked, what didn't, and how I actually built it."
+    Title = "unemployed guy's blog"
+    Content = "Currently I'm just an IT student testing with Claude AI. I'm not a programmer, but I have an idea of utilising AI and directing it to achieving certain goals. Currently I just run Claude on my VM (type 2) with Debian as the main OS for Claude, and pfSense as another VM to act as a secondary router and firewall, as a means of mitigating against prompt injection attacks."
 
 [menu]
   [[menu.main]]
