@@ -1,10 +1,34 @@
 baseURL = "https://your-domain.example/"
-languageCode = "en-au"
-title = "Your Blog Title"
+locale = "en-AU"
+title = "Billal Rehmani"
 theme = "PaperMod"
 
 [params]
   defaultTheme = "dark"
   ShowReadingTime = true
   ShowCodeCopyButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowShareButtons = false
+  ShowToc = true
+  TocOpen = false
   mainSections = ["posts"]
+  description = "IT student. Networking, security, Linux, and the occasional shader pack."
+
+  [params.homeInfoParams]
+    Title = "Billal Rehmani"
+    Content = "IT student at TAFE NSW, focused on networking and cybersecurity. Write-ups of real projects — what worked, what didn't, and how I actually built it."
+
+[menu]
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 1
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+  [[menu.main]]
+    name = "Archive"
+    url = "/archives/"
+    weight = 3
