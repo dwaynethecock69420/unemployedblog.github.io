@@ -294,6 +294,85 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
 }
 
+/* ── Home two-column layout ─────────────────────────────────────────────── */
+
+.home-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 860px) {
+    .home-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── PC Spec sheet ───────────────────────────────────────────────────────── */
+
+.pc-specs {
+    background: rgba(18, 18, 24, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 14px;
+    padding: 1.5rem 1.6rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 80px;
+}
+
+.specs-heading {
+    font-size: 0.72rem !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.45;
+    margin: 0 0 1.2rem !important;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.specs-category {
+    margin-bottom: 1.1rem;
+}
+
+.specs-category:last-child {
+    margin-bottom: 0;
+}
+
+.specs-category h3 {
+    font-size: 0.68rem !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.38;
+    margin: 0 0 0.35rem !important;
+    line-height: 1 !important;
+}
+
+.specs-category ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.specs-category ul li {
+    font-size: 0.82rem;
+    font-weight: 700 !important;
+    line-height: 1.45;
+    color: var(--primary);
+    padding: 0.15rem 0;
+    opacity: 0.9;
+}
+
+.specs-category ul li strong {
+    font-weight: 900 !important;
+    color: #fff;
+    opacity: 1;
+}
+
 /* ── Footer ─────────────────────────────────────────────────────────────── */
 
 .footer {
