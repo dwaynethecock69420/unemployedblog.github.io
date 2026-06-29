@@ -1,61 +1,175 @@
 /* ── Layout transparency (background set via extend_head.html with relURL) ── */
 
-/* Override PaperMod's solid theme background so the EFT image shows through */
 [data-theme="dark"] {
     --theme: transparent !important;
-    --entry: rgba(46, 46, 51, 0.82) !important;
-    --border: rgba(60, 60, 66, 0.70) !important;
+    --entry: rgba(28, 28, 33, 0.88) !important;
+    --border: rgba(255, 255, 255, 0.10) !important;
+    --primary: #e8e8e8;
+    --secondary: #a0a0b0;
+    --main-width: 1100px;
 }
 
 [data-theme="light"] {
     --theme: transparent !important;
-    --entry: rgba(255, 255, 255, 0.85) !important;
-    --border: rgba(200, 200, 200, 0.70) !important;
+    --entry: rgba(255, 255, 255, 0.88) !important;
+    --border: rgba(0, 0, 0, 0.10) !important;
+    --main-width: 1100px;
 }
 
-/* Fallback: if JS hasn't set data-theme yet */
 body {
     background-color: #0d0d0e;
+    font-weight: 700 !important;
+}
+
+/* ── Global bold fonts ───────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+    font-weight: 700;
+}
+
+p, li, td, th, span, a, label, time, blockquote {
+    font-weight: 700 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+}
+
+/* ── Wider, evenly padded main content ──────────────────────────────────── */
+
+.main {
+    max-width: var(--main-width, 1100px) !important;
+    width: 92% !important;
+    margin: 0 auto !important;
+    padding: 2rem 1.5rem !important;
+}
+
+.list-header,
+.page-header {
+    margin-bottom: 1.5rem;
 }
 
 /* ── Header ─────────────────────────────────────────────────────────────── */
 
 .header {
-    background: rgba(13, 13, 14, 0.82) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(10, 10, 12, 0.88) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-/* ── Shared tile base ───────────────────────────────────────────────────── */
+.header .nav {
+    max-width: var(--main-width, 1100px) !important;
+    width: 92% !important;
+    margin: 0 auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem !important;
+    gap: 1rem;
+}
+
+/* ── Nav tiles (Posts / Tags / Archive links) ───────────────────────────── */
+
+.nav .logo a,
+.nav .logo-switches a {
+    font-weight: 800 !important;
+    font-size: 1.15rem;
+    text-decoration: none;
+}
+
+#menu-btn,
+.nav ul {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav ul li a,
+.nav a[href] {
+    display: inline-block;
+    padding: 0.45rem 1rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    font-weight: 700 !important;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--primary);
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+}
+
+.nav ul li a:hover,
+.nav a[href]:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.28);
+    transform: translateY(-1px);
+}
+
+/* ── Shared tile base (posts, tags, archive) ────────────────────────────── */
 
 .post-entry,
 .terms-tags a,
 .archive-entry {
     display: block;
-    background: rgba(30, 30, 35, 0.82);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    border-radius: 10px;
-    padding: 1.1rem 1.4rem;
+    background: rgba(22, 22, 28, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 12px;
+    padding: 1.3rem 1.6rem;
     margin-bottom: 1rem;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    box-shadow: 0 3px 16px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
 }
 
 .post-entry:hover,
 .terms-tags a:hover,
 .archive-entry:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
-    border-color: rgba(255, 255, 255, 0.22) !important;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+    border-color: rgba(255, 255, 255, 0.26) !important;
+    background: rgba(32, 32, 40, 0.92);
+}
+
+/* ── Post listing layout (2-column on wide screens) ─────────────────────── */
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1rem;
 }
 
 /* ── Post cards ─────────────────────────────────────────────────────────── */
 
 .post-entry {
-    border-color: rgba(255, 255, 255, 0.10) !important;
+    border-color: rgba(255, 255, 255, 0.11) !important;
+}
+
+.post-entry .entry-header h2 {
+    font-size: 1.15rem;
+    font-weight: 800 !important;
+    margin-bottom: 0.4rem;
+}
+
+.post-entry .entry-content p {
+    font-size: 0.92rem;
+    opacity: 0.78;
+    margin: 0;
+}
+
+.post-entry .entry-footer {
+    font-size: 0.8rem;
+    opacity: 0.55;
+    margin-top: 0.75rem;
 }
 
 /* ── Tags page tiles ────────────────────────────────────────────────────── */
@@ -69,57 +183,67 @@ body {
 
 .terms-tags a {
     margin-bottom: 0;
-    padding: 0.6rem 1.1rem;
+    padding: 0.65rem 1.25rem;
     font-size: 0.95rem;
     color: var(--primary);
-    text-decoration: none;
+    border-radius: 10px;
 }
 
 /* ── Archive page tiles ─────────────────────────────────────────────────── */
 
 .archive-entry {
-    text-decoration: none;
     color: var(--primary);
 }
 
 .archive-entry .archive-entry-title {
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 800 !important;
     margin: 0 0 0.25rem;
 }
 
 .archive-entry .archive-count,
 .archive-entry time {
     font-size: 0.82rem;
-    opacity: 0.6;
+    opacity: 0.55;
 }
 
 /* ── Homepage profile/info block ────────────────────────────────────────── */
 
 .home-info {
-    background: rgba(13, 13, 14, 0.70);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    padding: var(--gap);
-    border-radius: var(--radius);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(12, 12, 16, 0.80);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 2rem 2.2rem;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.home-info h1 {
+    font-size: 2rem;
+    font-weight: 800 !important;
+    margin-bottom: 0.6rem;
 }
 
 /* ── Single post page ───────────────────────────────────────────────────── */
 
 .post-single {
-    background: rgba(22, 22, 25, 0.88);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-radius: var(--radius);
-    padding: var(--gap);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(18, 18, 22, 0.90);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 14px;
+    padding: 2.5rem 2.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
 }
 
 /* ── Footer ─────────────────────────────────────────────────────────────── */
 
 .footer {
-    background: rgba(13, 13, 14, 0.75) !important;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    background: rgba(10, 10, 12, 0.82) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    font-weight: 700 !important;
 }
